@@ -1,0 +1,63 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import { Icon } from 'astro-icon/components';
+import Footer from '../components/Footer.astro';
+import { CONTACT_EMAIL, TAGLINE, CONTACT_ADD_STREET, CONTACT_ADD_CITY, CONTACT_ADD_STCT, CONTACT_ADD_CODE, LOGO_LIGHT, INDEX_FOOTER_COL, navmenu, socials } from '../consts';
+
+const today = new Date();
+---
+<div id="indexFooter" class={`${INDEX_FOOTER_COL}`}>
+    <div class="pt-20 masterPaddingLR w-100% grid grid-flow-row sm:grid-cols-2 md:grid-cols-3 justify-center">
+
+        <div class="col-span-1 pb-2 border-b-1 grid content-end">
+            <img class="lowerLogo rounded-[5px]" src={LOGO_LIGHT}></img>
+        </div>
+        <div class="hidden md:inline"></div>
+        <div class="hidden md:inline col-span-1 headingFont text-3xl pb-2 border-b-0 text-right">
+            COMPANY
+        </div>
+
+        </div>
+        <div class=" pb-5 masterPaddingLR w-100% grid grid-flow-row sm:grid-cols-2 md:grid-cols-3 justify-center">
+
+        <div class="col-span-1">
+            <div>
+                <p>
+                    {TAGLINE}
+                </p>
+                <p>
+                    {CONTACT_ADD_STREET}
+                    </br>
+                    {CONTACT_ADD_CITY}
+                    </br>
+                    {CONTACT_ADD_STCT}
+                    </br>
+                    {CONTACT_ADD_CODE}
+                </p>
+                <p>
+                    <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+                </p>
+            </div>
+        </div>
+        <div class="hidden md:inline"></div>
+        <div class="hidden md:inline col-span-1 flex">
+            <div>
+                <div class="text-right justify-end">
+                    {navmenu.map((item, index) => (
+                        <div class="pt-2"><a href={item.href}>{item.label}</a></div>
+                    ))}
+                    <div class="pt-2 pt-1 flex flex-row justify-end">
+                        {socials.map((item, index) => (
+                            <a href={item.href} class="pl-[1em]">
+                            <span class="sr-only">{item.label}</span>
+                            <Icon name={item.iconName} width="30" height="30" />
+                        </a>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <Footer />
+</div>

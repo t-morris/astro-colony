@@ -1,0 +1,30 @@
+---
+import '../styles/global.css';
+import { getEntryBySlug, render } from "astro:content";
+const { slug } = Astro.props;
+const thisBand = await getEntryBySlug("front", slug);
+const { Content } = await render(thisBand);
+import { Icon } from 'astro-icon/components';
+
+const styleClasses = {
+  extradark: "bgcolor-exdark",
+  dark: "bgcolor-dark",
+  light: "bgcolor-light",
+  exlight: "bgcolor-exlight",
+  normal: "bgcolor-primary",
+  white: ""
+};
+
+const bgClass = styleClasses[thisBand?.data?.style];
+---
+
+<style>
+    #central-band {
+		background: white;
+		box-shadow: 0px 8px 5px -6px rgba(0,0,0, 50%) inset, 0px -8px 5px -6px rgba(0,0,0, 50%) inset;
+	}
+</style>
+
+<div id="central-band" class={`${bgClass} pt-20 pb-20 w-100% masterPaddingLR`} style={`background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url(${thisBand.data.heroImage}); background-repeat: no-repeat; background-position: center; background-size: cover;`}>
+    <Content />
+</div>

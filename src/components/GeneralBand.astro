@@ -1,0 +1,59 @@
+---
+import { getEntryBySlug, render } from "astro:content";
+const { slug } = Astro.props;
+const thisBand = await getEntryBySlug("front", slug);
+const { Content } = await render(thisBand);
+import { Icon } from 'astro-icon/components';
+
+
+const styleClasses = {
+  extradark: "bgcolor-exdark",
+  dark: "bgcolor-dark",
+  light: "bgcolor-light",
+  exlight: "bgcolor-exlight",
+  normal: "bgcolor-primary",
+  white: ""
+};
+
+const bgClass = styleClasses[thisBand?.data?.style]
+
+const textOrientationClasses = {
+  left: "text-start",
+  right: "text-end"
+};
+
+const objectOrientationClasses = {
+  right: "justify-end",
+  left: "justify-start"
+};
+
+const txtOrClass = textOrientationClasses[thisBand?.data?.orientation]
+const objOrClass = objectOrientationClasses[thisBand?.data?.orientation]
+
+const imageSection =
+  `<div class="grow grid place-content-center ">
+        <img class="bandImage rounded-[12px] box-shadow" src=${thisBand.data.heroImage}>
+    </div>`;
+
+---
+<div id={thisBand.data.title} class={`${bgClass} p-20 masterPaddingLR w-100% grid grid-flow-row grid-cols-1 lg:grid-cols-2 gap-10 justify-center`}>
+    {thisBand?.data?.orientation === "right" && <Fragment set:html={imageSection} />}
+
+    <div class="grow place-content-center ">
+        <h3 class=`${txtOrClass} headingFont`>{thisBand.data.title}</h3>
+          <div class=`${txtOrClass}`>
+            <Content />
+          </div>
+
+          {thisBand.data.buttonText && (
+            <div className={`${objOrClass} flex pt-3`}>
+                <a href={thisBand.data.buttonHref} className={`bgButton rounded-full p-1 pl-4 pr-4 flex flex-row content-center`}>
+                  <span>{thisBand.data.buttonText}</span>
+                </a>
+            </div>
+          )}
+    </div>
+
+
+    {thisBand?.data?.orientation === "left" && <Fragment set:html={imageSection} />}
+</div>

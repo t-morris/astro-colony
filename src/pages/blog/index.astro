@@ -1,0 +1,67 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { BLOG_CARD_COL } from '../../consts';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main class="dropBoxShadow p-20 masterPaddingLR">
+			<section>
+				<div class="grid xs:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-10 auto-rows-min">
+					{
+						posts.slice(0,1).map((post) => (
+							<div class="xs:col-span-1 xs:row-span-1 lg:col-span-2 xl:col-span-2">
+								<a href={`/blog/${post.id}/`}>
+									<div class={`${BLOG_CARD_COL} rounded-[12px] box-shadow`}>
+									<div class="blogListDiv lowerDropBoxShadow rounded-t-[12px] h-96 bg-cover bg-center" style={`background-image:url(${post.data.heroImage})`}>
+									</div>
+									<div class="pt-3">
+										<h4 class="title headingFont">{post.data.title}</h4>
+										<p class="text-center pb-1">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+									</div>
+									</div>
+								</a>
+							</div>
+						))
+					}
+
+					{
+						posts.slice(2).map((post) => (
+							<div class="row-span-1 col-span-1">
+								<a href={`/blog/${post.id}/`}>
+									<div class={`${BLOG_CARD_COL} rounded-[12px] box-shadow`}>
+									<div class="blogListDiv lowerDropBoxShadow rounded-t-[12px] h-96 bg-cover bg-center" style={`background-image:url(${post.data.heroImage})`}>
+									</div>
+									<div class="pt-3">
+										<h4 class="title headingFont">{post.data.title}</h4>
+										<p class="text-center pb-1">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+									</div>
+									</div>
+								</a>
+							</div>
+						))
+					}
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

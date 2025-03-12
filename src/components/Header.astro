@@ -1,0 +1,73 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE, LOGO_DARK, NAVBAR_COL, navmenu, socials } from '../consts';
+import { Icon } from 'astro-icon/components';
+---
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("open-menu").addEventListener("click", () => {
+    const mobMenu = document.getElementById("mobile-menu").classList;
+    mobMenu.remove("hidden");
+  });
+
+  document.getElementById("close-menu").addEventListener("click", () => {
+    const mobMenu = document.getElementById("mobile-menu").classList;
+    mobMenu.add("hidden");
+  });
+});
+</script>
+<nav id="mobile-menu" class={`hidden absolute fixed navmenu-dropdown w-screen z-40 h-screen ${NAVBAR_COL} flex flex-col content-center justify-center`}>
+		<div class="grow flex justify-end p-5">
+			<a id="close-menu" class="social-links pl-[1em]">
+				<span class="sr-only">Close Menu</span>
+				<Icon name="material-symbols:close-rounded" width="30" height="30"/>
+			</a>
+		</div>
+		{navmenu.map((item, index) => (
+			<div class="flex justify-center p-2">
+				<a class="h-full headingFont text-3xl text-center" href={item.href}>{item.label}</a>
+			</div>
+		))}
+		<div class="flex justify-center">
+			<div class="social-links grid w-[120px] grid-cols-2 justify-center">
+				{socials.map((item, index) => (
+				<div class="p-3 w-fit h-fit">
+					<a href={item.href}>
+						<span class="sr-only">{item.label}</span>
+						<Icon name={item.iconName} width="40" height="40" />
+					</a>
+				</div>
+				))}
+			</div>
+		</div>
+		<div class="grow p-5">
+		</div>
+</nav>
+<header class={`pl-5 pr-5 ${NAVBAR_COL}`}>
+	<nav class="flex items-center justify-between h-[78px]">
+		<div class="w-[200px]">
+			<a href="/"><img src={LOGO_DARK} class="logo"></img></a>
+		</div>
+		<div class="internal-links hidden md:inline-flex h-full items-center flex gap-5 ">
+			{navmenu.map((item, index) => (
+			<HeaderLink class="h-full headingFont content-center" href={item.href}>{item.label}</HeaderLink>
+			))}
+		</div>
+		<div class="social-links hidden md:inline-flex flex min-w-[200px] justify-end">
+			{socials.map((item, index) => (
+				<a href={item.href} class="pl-[1em]">
+					<span class="sr-only">{item.label}</span>
+					<Icon name={item.iconName} width="30" height="30" />
+				</a>
+			))}
+		</div>
+		<div class="md:hidden flex justify-end">
+			<a id="open-menu" class="pl-[1em]">
+				<span class="sr-only">Open Menu</span>
+				<Icon name="material-symbols:menu-rounded" width="30" height="30" />
+			</a>
+		</div>
+
+	</nav>
+</header>
+

@@ -1,0 +1,38 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import GeneralBand from "../components/GeneralBand.astro";
+import CentralBand from "../components/CentralBand.astro";
+import HeroBand from "../components/HeroBand.astro";
+import IndexFooter from "../components/IndexFooter.astro";
+
+const today = new Date();
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+
+		<Header />
+
+		<HeroBand slug="hero"/>
+
+		<div id="scrollPoint"></div>
+
+		<GeneralBand slug="band1" />
+
+		<CentralBand slug="central" />
+
+		<GeneralBand slug="band3" />
+
+		<GeneralBand slug="band4" />
+
+		<IndexFooter />
+
+	</body>
+</html>
