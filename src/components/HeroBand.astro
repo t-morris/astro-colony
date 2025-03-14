@@ -1,0 +1,62 @@
+---
+import '../styles/global.css';
+import { getEntry, render } from "astro:content";
+const { slug } = Astro.props;
+const thisBand = await getEntry("front", slug);
+const { Content } = await render(thisBand);
+import { Icon } from 'astro-icon/components';
+---
+
+<style>
+    #hero-band {
+        height: calc(100vh - 78px);
+		margin: 0;
+		padding: 0;
+		background: white;
+	}
+</style>
+
+{thisBand?.data?.orientation === "left" && (
+    <div id="hero-band" class="dropBoxShadow p-20 min-h-[445px] w-100% place-content-center justify-center" style={`background: linear-gradient(to ${thisBand.data.orientation === "left" ? "top left" : "top right"}, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 70%), url(${thisBand.data.heroImage}); background-repeat: no-repeat; background-position: right; background-size: cover;`}>
+        <div class="place-content-center grid grid-cols-1 lg:grid-cols-2 gap-20 grid-flow-row p-20 masterPaddingLR">
+            <div class="grow place-content-center text-right content-end">
+                <Content>{thisBand.body}</Content>
+                <div class="flex justify-end">
+                    <a href={thisBand.data.buttonHref} onclick="event.preventDefault(); document.getElementById('scrollPoint')?.scrollIntoView({ behavior: 'smooth' })">
+                        <div class="bgButton rounded-full p-1 pl-4 pr-3 flex flex-row">
+                            <div class="mr-2 place-content-center"><span>{thisBand.data.buttonText}</span></div>
+                            <div class="place-content-center "><Icon name="solar:cursor-linear" width="24" height="24" /></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="headingFont font-extrabold grow grid place-content-center text-5xl text-left content-center">
+                {thisBand.data.title}
+            </div>
+        </div>
+    </div>
+)}
+
+{thisBand?.data?.orientation === "right" && (
+    <div id="hero-band" class="dropBoxShadow p-20 min-h-[445px] w-100% place-content-center justify-center" style={`background: linear-gradient(to ${thisBand.data.orientation === "left" ? "top left" : "top right"}, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 70%), url(${thisBand.data.heroImage}); background-repeat: no-repeat; background-position: right; background-size: cover;`}>
+        <div class="place-content-center grid grid-cols-1 lg:grid-cols-2 gap-20 grid-flow-row p-20 masterPaddingLR">
+            <div class="headingFont font-extrabold grow grid place-content-center text-5xl text-right content-center">
+                {thisBand.data.title}
+            </div>
+            <div class="grow place-content-center content-end">
+                <Content>{thisBand.body}</Content>
+                <div class="flex justify-start">
+                    <a href={thisBand.data.buttonHref} onclick="event.preventDefault(); document.getElementById('scrollPoint')?.scrollIntoView({ behavior: 'smooth' })">
+                        <div class="bgButton rounded-full p-1 pl-4 pr-3 flex flex-row">
+                            <div class="mr-2 place-content-center"><span>{thisBand.data.buttonText}</span></div>
+                            <div class="place-content-center "><Icon name="solar:cursor-linear" width="24" height="24" /></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+)}
+
+
+

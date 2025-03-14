@@ -1,0 +1,32 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE, LOGO_DARK, NAVBAR_COL } from '../consts';
+import { Icon } from 'astro-icon/components';
+---
+
+<header class={`pl-5 pr-5 ${NAVBAR_COL}`}>
+	<nav class="flex items-center justify-between h-[78px]">
+		<div class="w-[150px]">
+			<a href="/"><img src={LOGO_DARK} class="logo"></img></a>
+		</div>
+		<div class="internal-links h-full items-center flex gap-5 ">
+			<HeaderLink class="h-full headingFont content-center" href="/">Home</HeaderLink>
+			<HeaderLink class="h-full headingFont content-center" href="/blog">Blog</HeaderLink>
+			<HeaderLink class="h-full headingFont content-center" href="/about">About</HeaderLink>
+		</div>
+		<div class="social-links flex w-max-[150px]">
+			<a href="" class="pl-[1em]" target="_blank">
+				<span class="sr-only">Follow us on Bluesky</span>
+				<Icon name="simple-icons:bluesky" width="30" height="30" />
+			</a>
+			<a href="" class="pl-[1em]" target="_blank">
+				<span class="sr-only">Follow us on Instagram</span>
+				<Icon name="simple-icons:instagram" width="30" height="30" />
+			</a>
+			<a href="" class="pl-[1em]" target="_blank">
+				<span class="sr-only">Check out our Github</span>
+				<Icon name="simple-icons:github" width="30" height="30" />
+			</a>
+		</div>
+	</nav>
+</header>

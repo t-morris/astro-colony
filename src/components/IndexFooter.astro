@@ -1,0 +1,65 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import "../styles/global.css";
+import { Icon } from 'astro-icon/components';
+import Footer from '../components/Footer.astro';
+import { CONTACT_EMAIL, TAGLINE, CONTACT_ADD_STREET, CONTACT_ADD_CITY, CONTACT_ADD_STCT, CONTACT_ADD_CODE, LOGO_LIGHT, INDEX_FOOTER_COL } from '../consts';
+
+const today = new Date();
+---
+<div id="indexFooter" class={`${INDEX_FOOTER_COL}`}>
+    <div class="pt-20 pb-5 masterPaddingLR w-100% grid grid-flow-row xs:grid-cols-2 sm:grid-cols-3 justify-center">
+
+        <div class="xs:col-span-1 sm:col-span-2 pb-2 border-b-1 grid content-end">
+            <img class="lowerLogo rounded-[5px]" src={LOGO_LIGHT}></img>
+        </div>
+        <div class="col-span-1 headingFont text-3xl pb-2 border-b-0 text-right">
+            COMPANY
+        </div>
+
+        <div class="xs:col-span-1 sm:col-span-2">
+            <div>
+                <p>
+                    {TAGLINE}
+                </p>
+                <p>
+                    {CONTACT_ADD_STREET}
+                    </br>
+                    {CONTACT_ADD_CITY}
+                    </br>
+                    {CONTACT_ADD_STCT}
+                    </br>
+                    {CONTACT_ADD_CODE}
+                </p>
+                <p>
+                    <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+                </p>
+            </div>
+        </div>
+        <div class="col-span-1 flex justify-end">
+            <div>
+                <div class="text-right">
+                    <div class="pb-2 pt-2"><a href="">Home</a></div>
+                    <div class="pb-2"><a href="">Services</a></div>
+                    <div class="pb-2"><a href="">About</a></div>
+                    <div class="pb-2"><a href="">Contact</a></div>
+                    <div class="pb-2 pt-1 flex flex-row">
+                        <a href="" class="pl-[1em]" target="_blank">
+                            <span class="sr-only">Follow us on Bluesky</span>
+                            <Icon name="simple-icons:bluesky" width="30" height="30" />
+                        </a>
+                        <a href="" class="pl-[1em]" target="_blank">
+                            <span class="sr-only">Follow us on Instagram</span>
+                            <Icon name="simple-icons:instagram" width="30" height="30" />
+                        </a>
+                        <a href="" class="pl-[1em]" target="_blank">
+                            <span class="sr-only">Check out our Github</span>
+                            <Icon name="simple-icons:github" width="30" height="30" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <Footer />
+</div>
