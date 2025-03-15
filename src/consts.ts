@@ -24,3 +24,91 @@ export const SITE_FOOTER_COL = "bgcolor-exdark";
 export const INDEX_FOOTER_COL = "bgcolor-dark";
 export const NAVBAR_COL = "bgcolor-light";
 
+
+export const navmenu: Menu[] = [{
+    label: "Home",
+    href: "/",
+},
+{
+    label: "Blog",
+    href: "/blog",
+},
+{
+    label: "About",
+    href: "/about",
+},
+// {
+//     label: "Contact",
+//     href: "/contact",
+// },
+];
+
+
+// Uncomment or add more socials as desired, recommend 4 or fewer.
+export const socials: Menu[] = [
+{
+    label: "Follow us on Bluesky",
+    href: "/",
+    iconName: "simple-icons:bluesky",
+},
+// {
+//     label: "Follow us on Twitter",
+//     href: "/",
+//     iconName: "simple-icons:twitter",
+// },
+// {
+//     label: "Follow us on Mastodon",
+//     href: "/",
+//     iconName: "simple-icons:mastodon",
+// },
+// {
+//     label: "Join on Discord",
+//     href: "/",
+//     iconName: "simple-icons:discord",
+// },
+// {
+//     label: "Follow us on Instagram",
+//     href: "/",
+//     iconName: "simple-icons:instagram",
+// },
+// {
+//     label: "Follow us on Tiktok",
+//     href: "/",
+//     iconName: "simple-icons:tiktok",
+// },
+// {
+//     label: "Follow us on Youtube",
+//     href: "/",
+//     iconName: "simple-icons:youtube",
+// },
+// {
+//     label: "Follow us on Twitch",
+//     href: "/",
+//     iconName: "simple-icons:twitch",
+// },
+// {
+//     label: "Follow us on Facebook",
+//     href: "/",
+//     iconName: "simple-icons:facebook",
+// },
+// {
+//     label: "Follow us on LinkedIn",
+//     href: "/",
+//     iconName: "simple-icons:linkedin",
+// },
+{
+    label: "Visit our Github",
+    href: "/",
+    iconName: "simple-icons:github",
+},
+// {
+//     label: "Visit our Gitlab",
+//     href: "/",
+//     iconName: "simple-icons:gitlab",
+// },
+// {
+//     label: "Add our blog to your RSS Feed",
+//     href: "/",
+//     iconName: "simple-icons:rss",
+// },
+];
