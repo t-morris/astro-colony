@@ -14,7 +14,6 @@ export const COMPANY_NAME = "Colony Name";
 export const LOGO_LIGHT = "../colony_wht.png";
 export const LOGO_DARK = "../colony_blk.png";
 
-
 // The following are further colour customisations, to change them update them to "bgcolor-exlight", "bgcolor-light", "bgcolor-primary", "bgcolor-dark" or "bgcolor-exdark" for reference colours these are 0-4 on the colour palette in the page footer.
 // Note that the colour for the Central Band textbox can be adjusted in the .md file by updating the bgcolor-light with one of the above.
 // Note that button colour is adjusted by adjusting the accent colour in the global.css file.
@@ -24,6 +23,10 @@ export const SITE_FOOTER_COL = "bgcolor-exdark";
 export const INDEX_FOOTER_COL = "bgcolor-dark";
 export const NAVBAR_COL = "bgcolor-light";
 
+// The contact form utilises the web3forms system, to get started you need an API key to get one visit: https://web3forms.com
+export const WEB3FORMS_KEY_HERE = "your access key goes here"
+
+//The following are the menu customisations for the main Nav - to remove you can simply comment them out.
 
 export const navmenu: Menu[] = [{
     label: "Home",
@@ -37,10 +40,10 @@ export const navmenu: Menu[] = [{
     label: "About",
     href: "/about",
 },
-// {
-//     label: "Contact",
-//     href: "/contact",
-// },
+{
+    label: "Contact",
+    href: "/contact",
+},
 ];
 
 

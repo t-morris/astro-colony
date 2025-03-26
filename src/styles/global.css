@@ -122,6 +122,8 @@ a {
 	.masterPaddingLR {
 		padding-left: 15rem;
 		padding-right: 15rem;
+		max-width: 2000px;
+		margin: 0 auto 0 auto;
 	}
 }
 
@@ -265,7 +267,6 @@ nav .internal-links a:hover {
 	height: auto;
 	width: auto;
 }
-
 .dropBoxShadow {
 	box-shadow: 0px 8px 5px -6px rgba(0,0,0, 50%) inset, 0px -8px 5px -6px rgba(0,0,0, 50%) inset;
 }

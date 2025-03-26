@@ -36,24 +36,26 @@ const imageSection =
     </div>`;
 
 ---
-<div id={thisBand.data.title} class={`${bgClass} p-20 masterPaddingLR w-100% grid grid-flow-row grid-cols-1 lg:grid-cols-2 gap-10 justify-center`}>
-    {thisBand?.data?.orientation === "right" && <Fragment set:html={imageSection} />}
+<div id={thisBand.data.title} class={`${bgClass} p-20 w-100%`}>
+  <div class="masterPaddingLR grid grid-flow-row grid-cols-1 lg:grid-cols-2 gap-10 justify-center">
+      {thisBand?.data?.orientation === "right" && <Fragment set:html={imageSection} />}
 
-    <div class="grow place-content-center ">
-        <h3 class=`${txtOrClass} headingFont`>{thisBand.data.title}</h3>
-          <div class=`${txtOrClass}`>
-            <Content />
-          </div>
-
-          {thisBand.data.buttonText && (
-            <div className={`${objOrClass} flex pt-3`}>
-                <a href={thisBand.data.buttonHref} className={`bgButton rounded-full p-1 pl-4 pr-4 flex flex-row content-center`}>
-                  <span>{thisBand.data.buttonText}</span>
-                </a>
+      <div class="grow place-content-center ">
+          <h3 class=`${txtOrClass} headingFont`>{thisBand.data.title}</h3>
+            <div class=`${txtOrClass}`>
+              <Content />
             </div>
-          )}
+
+            {thisBand.data.buttonText && (
+              <div className={`${objOrClass} flex pt-3`}>
+                  <a href={thisBand.data.buttonHref} className={`bgButton rounded-full p-1 pl-4 pr-4 flex flex-row content-center`}>
+                    <span>{thisBand.data.buttonText}</span>
+                  </a>
+              </div>
+            )}
+      </div>
+
+
+      {thisBand?.data?.orientation === "left" && <Fragment set:html={imageSection} />}
     </div>
-
-
-    {thisBand?.data?.orientation === "left" && <Fragment set:html={imageSection} />}
 </div>

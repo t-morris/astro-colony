@@ -19,8 +19,8 @@ const posts = (await getCollection('blog')).sort(
 	</head>
 	<body>
 		<Header />
-		<main class="dropBoxShadow p-20 masterPaddingLR">
-			<section>
+		<main class="dropBoxShadow p-20">
+			<section class="masterPaddingLR">
 				<div class="grid xs:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-10 auto-rows-min">
 					{
 						posts.slice(0,1).map((post) => (

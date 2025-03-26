@@ -8,15 +8,15 @@ This Astro theme is designed for small businesses looking for a simple yet power
 </p>
 
 ## Features
-- **Landing Page** with customizable sections ("bands")
-- **Blog** for company updates, articles, or news
-- **About Page** for business details and team introduction
+- **Landing Page** with customizable sections ("bands").
+- **Blog** for company updates, articles, or news.
+- **About Page** for business details and team introduction.
 - **Centralized Customization** where most changes for nav, socials, and other info can be made from a single file.
 - **Quick Theming** where adding the RGB values of an accent color and a backing color will automatically update the entire site.
+- **Contact Us** page for inquiries powered by [Web3Forms](https://web3forms.com/).
 
 ## Roadmap (Upcoming Features)
 - **Prior Projects Portfolio** (for design agencies and freelancers)
-- **Contact Us** page for inquiries
 - **Store** for digital or physical product sales
 - **Services** page to showcase business offerings
 
@@ -107,6 +107,15 @@ Band 1 Lorem ipsum odor amet, consectetuer adipiscing elit. Parturient vestibulu
 Blog entries can be added in the same way as for normal Astro blog sites by adding entries to the `src/content/blog/` folder, with image assets being added to the `public/blog_assets/` folder.
 
 #### About Us Page
+
+The about us page is edited directly as a normal astro page would be by editing the about.astro file.
+
+#### Contact Us Page
+
+This theme uses [Web3Forms](https://web3forms.com/) to handle contact form submissions. To set it up:
+1. **Get Your API Key** – Sign up at [Web3Forms](https://web3forms.com/#start) and generate an API key.  
+2. **Add Your Key** – Open the `consts.ts` file in the project and find the `WEB3FORMS_KEY_HERE` constant. Replace the placeholder with your API key.
+
 
 ## Installation & Setup
 1. Clone the repository and install dependencies:

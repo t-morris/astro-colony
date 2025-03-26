@@ -4,8 +4,8 @@ import ColourPalette from '../components/ColourPalette.astro';
 import { COMPANY_NAME, SITE_FOOTER_COL } from '../consts';
 ---
 
-<footer class={`p-[1em] masterPaddingLR ${SITE_FOOTER_COL}`}>
-	<div class="flex h-[18px]">
+<footer class={`p-[1em] ${SITE_FOOTER_COL}`}>
+	<div class="flex h-[18px] masterPaddingLR">
 		<div class="grow text-left">&copy; {today.getFullYear()} {COMPANY_NAME}. All rights reserved.</div>
 		<ColourPalette />
 	</div>

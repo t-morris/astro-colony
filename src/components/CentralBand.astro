@@ -25,6 +25,8 @@ const bgClass = styleClasses[thisBand?.data?.style];
 	}
 </style>
 
-<div id="central-band" class={`${bgClass} pt-20 pb-20 w-100% masterPaddingLR`} style={`background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url(${thisBand.data.heroImage}); background-repeat: no-repeat; background-position: center; background-size: cover;`}>
-    <Content />
+<div id="central-band" class={`${bgClass} pt-20 pb-20 w-100%`} style={`background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url(${thisBand.data.heroImage}); background-repeat: no-repeat; background-position: center; background-size: cover;`}>
+  <div class="masterPaddingLR">
+      <Content />
+  </div>
 </div>
