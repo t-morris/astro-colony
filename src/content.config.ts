@@ -26,5 +26,39 @@ const front = defineCollection({
 	}),
 });
 
+const store = defineCollection({
+	loader: glob({ base: './src/content/store', pattern: '**/*.{md,mdx}' }),
+	schema: z.object({
+		title: z.string(),
+		price: z.string(),
+		description: z.string(),
+		heroImage: z.string(),
+		productImageOne: z.string(),
+		productImageTwo: z.string(),
+		productImageThree: z.string().optional(),
+		productImageFour: z.string().optional(),
+		productImageFive: z.string().optional(),
+		buttonHref: z.string(),
+		buttonText: z.string(),
+		releaseDate: z.coerce.date(),
+	}),
+});
 
-export const collections = { blog, front};
+const portfolio = defineCollection({
+	loader: glob({ base: './src/content/portfolio', pattern: '**/*.{md,mdx}' }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		heroImage: z.string(),
+		productImageOne: z.string(),
+		productImageTwo: z.string(),
+		productImageThree: z.string().optional(),
+		productImageFour: z.string().optional(),
+		productImageFive: z.string().optional(),
+		productImageSix: z.string().optional(),
+		releaseDate: z.coerce.date(),
+		services: z.array(z.string()),
+	}),
+});
+
+export const collections = { blog, front, store, portfolio };

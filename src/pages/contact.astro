@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import { WEB3FORMS_KEY_HERE } from '../consts';
+import { Icon } from 'astro-icon/components';
 
 const contactImage = "/placeholder-contact.jpg"
 ---
@@ -95,16 +96,15 @@ const contactImage = "/placeholder-contact.jpg"
 
 	<body>
 		<Header />
-		<main class="dropBoxShadow p-20">
+		<main class="dropBoxShadow p-20 min-h-[100vh]">
 			<article class="masterPaddingLR">
 				<div class="hero-image">
 					{contactImage && <img class="rounded-[12px]" width={1020} height={510} src={contactImage} alt="" />}
 				</div>
 				<div class="prose text-justify">
-					<div class="title pt-4">
+					<div class="title pt-4 pb-5 mb-2 border-b-[1px] border-neutral-300">
 						<h1>Contact Us</h1>
 					</div>
-					<hr />
                     <p class="text-center">
                     Have a question, suggestion, or just want to get in touch?</br>
                     We'd love to hear from you!</br></br>
@@ -163,7 +163,12 @@ const contactImage = "/placeholder-contact.jpg"
                             Please enter your message.
                             </div>
                         </div>
-                        <button class="bgButton rounded-full p-1 pl-4 pr-4 flex flex-row content-center ml-auto mr-auto" type="submit" size="lg" block>Send Message</button>
+                        <div class="flex mx-auto">
+								<a href="" class="bgButton">
+									<div class="mr-2 place-content-center"><span>Send Message</span></div>
+									<div class="place-content-center"><Icon name="mdi:envelope-fast-outline" width="24" height="24" /></div>
+								</a>
+							</div>
                         <div id="result" class="mt-3 text-center"></div>
                         </form>
                     </div>

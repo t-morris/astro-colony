@@ -7,7 +7,7 @@ buttonHref: '#'
 buttonText: ''
 ---
 
-<div class="bgcolor-light rounded-[12px] p-10">
+<div class="bgcolor-light box-shadow rounded-[12px] p-10">
 	<h2 class="headingFont font-extrabold">Our Services</h2>
 		<div class="mt-10 grid gap-10 content-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 			<div class="">

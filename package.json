@@ -1,7 +1,7 @@
 {
   "name": "astro-colony",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -15,6 +15,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@iconify-json/material-symbols": "^1.2.16",
+    "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.27",
     "@iconify-json/solar": "^1.2.2",
     "@tailwindcss/vite": "^4.0.9",

@@ -1,0 +1,76 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import "../styles/global.css";
+import { Icon } from 'astro-icon/components';
+
+type Props = CollectionEntry<'store'>['data'];
+
+const { title, price, description, heroImage, productImageOne, productImageTwo, productImageThree, productImageFour, productImageFive, buttonHref, buttonText } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+
+	<script>
+		function updateMainImage(src) {
+			document.getElementById('mainImage').src = src;
+		}
+	</script>
+
+	<body>
+		<Header />
+		<main class="dropBoxShadow p-20 min-h-[100vh]">
+			<article class="masterPaddingLR">
+
+				<div class="max-w-[1500px] mr-auto ml-auto text-justify">
+					<div class="flex sm:flex-col flex-col lg:flex-row">
+
+						<div class="w-full lg:min-w-2/3 flex ml-auto mr-auto flex-col pb-3">
+							<div class="ml-auto mr-auto grow">
+								{heroImage && <img id="mainImage" class="rounded-[12px]" src={heroImage} alt="" />}
+							</div>
+							<div class="grow">
+								<div class="flex flex-wrap justify-evenly">
+									<a onclick={`document.getElementById('mainImage').src='${heroImage}'`}><div class="m-2 w-[50px] h-[50px]"><img class="rounded-[12px] min-h-[50px] min-w-[50px] object-cover overflow-hidden" src={heroImage} /></div></a>
+									{productImageOne && <a onclick={`document.getElementById('mainImage').src='${productImageOne}'`}><div class="m-2 w-[50px] h-[50px]"><img class="rounded-[12px] min-h-[50px] min-w-[50px] object-cover overflow-hidden" src={productImageOne} /></div></a>}
+									{productImageTwo && <a onclick={`document.getElementById('mainImage').src='${productImageTwo}'`}><div class="m-2 w-[50px] h-[50px]"><img class="rounded-[12px] min-h-[50px] min-w-[50px] object-cover overflow-hidden" src={productImageTwo} /></div></a>}
+									{productImageThree && <a onclick={`document.getElementById('mainImage').src='${productImageThree}'`}><div class="m-2 w-[50px] h-[50px]"><img class="rounded-[12px] min-h-[50px] min-w-[50px] object-cover overflow-hidden" src={productImageThree} /></div></a>}
+									{productImageFour && <a onclick={`document.getElementById('mainImage').src='${productImageFour}'`}><div class="m-2 w-[50px] h-[50px]"><img class="rounded-[12px] min-h-[50px] min-w-[50px] object-cover overflow-hidden" src={productImageFour} /></div></a>}
+									{productImageFive && <a onclick={`document.getElementById('mainImage').src='${productImageFive}'`}><div class="m-2 w-[50px] h-[50px]"><img class="rounded-[12px] min-h-[50px] min-w-[50px] object-cover overflow-hidden" src={productImageFive} /></div></a>}
+								</div>
+							</div>
+						</div>
+
+						<div class="ml-5 grow flex flex-col justify-center pl-5 border-0 lg:border-l-[1px] border-neutral-300">
+							<div class="title">
+								<h3>{title}</h3>
+								<p>{description}</p>
+							</div>
+							<div class="date text-center ml-auto mr-auto pb-2">
+								${price}
+							</div>
+							<div class="mx-auto p-5">
+								<a href={buttonHref} class="bgButton">
+									<div class="mr-2 place-content-center"><span>{buttonText}</span></div>
+									<div class="place-content-center"><Icon name="solar:bag-4-outline" width="24" height="24" /></div>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="pt-2 mt-0 border-t-[1px] border-neutral-300">
+						<slot />
+					</div>
+
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

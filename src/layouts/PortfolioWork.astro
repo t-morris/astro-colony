@@ -1,0 +1,124 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import "../styles/global.css";
+import { Icon } from 'astro-icon/components';
+
+type Props = CollectionEntry<'store'>['data'];
+
+const { title, description, heroImage, productImageOne, productImageTwo, productImageThree, productImageFour, productImageFive, productImageSix, services } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+
+
+
+	<body>
+		<Header />
+		<main class="dropBoxShadow p-20 min-h-[100vh]">
+			<article class="masterPaddingLR">
+
+				<div class="max-w-[1500px] mr-auto ml-auto text-justify">
+
+                        <div class="w-full">
+								{heroImage && <img class="blogImage rounded-t-[12px] w-full" src={heroImage} alt="" />}
+                        </div>
+						<div class="w-full lg:min-w-2/3 flex ml-auto mr-auto flex-col">
+							<div class="grow">
+
+							</div>
+						</div>
+
+					<div class="flex mt-0 border-t-[1px] border-neutral-300"">
+
+                        <div class="pt-5 ">
+                            <div class="title">
+                                <h3 class="">{title}</h3>
+                                <p class="italic p-3">{description}</p>
+                            </div>
+                            <div class="text-justify p-2">
+                            <h4 class="title ">About The Project</h4>
+                            <slot /></div>
+                            <div>
+                            <div class="text-center p-2"><h4 class="title ">Services</h4>
+                            <span>{services.map((service, index) => (<>{index > 0 && ' • '}{service}</>))}</span>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="ml-5 w-full lg:min-w-3/8 flex flex-col justify-start border-0 lg:border-l-[1px] border-neutral-300">
+                                <div class="grid">
+									{productImageOne && <a href="#" data-image={productImageOne} class="image-thumbnail"><div class="blarg"><img class=" object-cover overflow-hidden" src={productImageOne} /></div></a>}
+									{productImageTwo && <a href="#" data-image={productImageTwo} class="image-thumbnail"><div class="blarg"><img class=" object-cover overflow-hidden" src={productImageTwo} /></div></a>}
+									{productImageThree && <a href="#" data-image={productImageThree} class="image-thumbnail"><div class="blarg"><img class=" object-cover overflow-hidden" src={productImageThree} /></div></a>}
+									{productImageFour && <a href="#" data-image={productImageFour} class="image-thumbnail"><div class="blarg"><img class=" object-cover overflow-hidden" src={productImageFour} /></div></a>}
+									{productImageFive && <a href="#" data-image={productImageFive} class="image-thumbnail"><div class="blarg"><img class=" object-cover overflow-hidden" src={productImageFive} /></div></a>}
+									{productImageSix && <a href="#" data-image={productImageSix} class="image-thumbnail"><div class="blarg"><img class=" object-cover overflow-hidden" src={productImageFive} /></div></a>}
+								</div>
+
+                        </div>
+					</div>
+				</div>
+			</article>
+
+		<!-- Modal -->
+        <div id="imageModal" class="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center hidden">
+        <button id="closeModalBtn" class="absolute top-4 right-4 text-white"><a href="" class="hover:text-red-500"><Icon name="material-symbols:close-rounded" height="50px" width="50px"/></a></button>
+            <div id="modalContent" class="relative">
+                <img id="mainImage" class="max-w-full max-h-full rounded-[12px] shadow-lg" />
+
+            </div>
+        </div>
+
+		</main>
+		<Footer />
+
+		<script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const modal = document.getElementById('imageModal');
+                const image = document.getElementById('mainImage');
+                const closeBtn = document.getElementById('closeModalBtn');
+
+                function openImageModal(src) {
+                    image.src = src;
+                    modal.classList.remove('hidden');
+                }
+
+                function closeImageModal() {
+                    modal.classList.add('hidden');
+                    image.src = ''; // optional: clear image
+                }
+
+                document.querySelectorAll('.image-thumbnail').forEach(el => {
+                    el.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        openImageModal(el.dataset.image);
+                    });
+                });
+
+                closeBtn.addEventListener('click', closeImageModal);
+
+                // Close on ESC
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        closeImageModal();
+                    }
+                });
+
+                // Close on click outside image
+                modal.addEventListener('click', (e) => {
+                    // Only close if clicking directly on the modal, not the image or modalContent
+                    if (e.target === modal) {
+                        closeImageModal();
+                    }
+                });
+            });
+        </script>
+
+	</body>
+</html>

@@ -22,12 +22,12 @@ import { Icon } from 'astro-icon/components';
             <div class="grow place-content-center text-right content-end">
                 <Content>{thisBand.body}</Content>
                 <div class="flex justify-end">
-                    <a href={thisBand.data.buttonHref} onclick="event.preventDefault(); document.getElementById('scrollPoint')?.scrollIntoView({ behavior: 'smooth' })">
-                        <div class="bgButton rounded-full p-1 pl-4 pr-3 flex flex-row">
-                            <div class="mr-2 place-content-center"><span>{thisBand.data.buttonText}</span></div>
-                            <div class="place-content-center "><Icon name="solar:cursor-linear" width="24" height="24" /></div>
-                        </div>
-                    </a>
+                    <div>
+                        <a href={thisBand.data.buttonHref} className={`bgButton`} onclick="event.preventDefault(); document.getElementById('scrollPoint')?.scrollIntoView({ behavior: 'smooth' })">
+                            <span>{thisBand.data.buttonText}</span>
+                            <Icon name="solar:cursor-linear" width="24" height="24" />
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="headingFont font-extrabold grow grid place-content-center text-5xl text-left content-center">
@@ -46,12 +46,12 @@ import { Icon } from 'astro-icon/components';
             <div class="grow place-content-center content-end">
                 <Content>{thisBand.body}</Content>
                 <div class="flex justify-start">
-                    <a href={thisBand.data.buttonHref} onclick="event.preventDefault(); document.getElementById('scrollPoint')?.scrollIntoView({ behavior: 'smooth' })">
-                        <div class="bgButton rounded-full p-1 pl-4 pr-3 flex flex-row">
-                            <div class="mr-2 place-content-center"><span>{thisBand.data.buttonText}</span></div>
-                            <div class="place-content-center "><Icon name="solar:cursor-linear" width="24" height="24" /></div>
-                        </div>
-                    </a>
+                    <div>
+                        <a href={thisBand.data.buttonHref} className={`bgButton`} onclick="event.preventDefault(); document.getElementById('scrollPoint')?.scrollIntoView({ behavior: 'smooth' })">
+                            <span>{thisBand.data.buttonText}</span>
+                            <Icon name="solar:cursor-linear" width="24" height="24" />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

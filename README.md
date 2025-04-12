@@ -14,14 +14,14 @@ This Astro theme is designed for small businesses looking for a simple yet power
 - **Centralized Customization** where most changes for nav, socials, and other info can be made from a single file.
 - **Quick Theming** where adding the RGB values of an accent color and a backing color will automatically update the entire site.
 - **Contact Us** page for inquiries powered by [Web3Forms](https://web3forms.com/).
+- **Store** for digital or physical product sales - this is layout only and is designed for use with [Gumroad](https://gumroad.com/) or other off-site sale systems.
+- **Prior Projects Portfolio** (for design agencies and freelancers)
 
 ## Roadmap (Upcoming Features)
-- **Prior Projects Portfolio** (for design agencies and freelancers)
-- **Store** for digital or physical product sales
 - **Services** page to showcase business offerings
 
 ## How to Use
-The theme has a `consts.ts` file populated with the **majority of the customizable text** for the theme, including most of the text found in the footer of the main page, along with the **navbar and socials options**.
+The theme has a `consts.ts` file populated with the **majority of the customizable settings** for the theme, including most of the text found in the footer of the main page, along with the **navbar and socials options**.
 
 The theme's colors are controlled by an **accent color** and a **background color**, the RGB properties of which can be edited in the `global.css` file. Once the primary colors are set, the rest of the website's colors are automatically calculated. There is a color palette visible in the footer (on larger screen sizes) to help determine/preview colors.
 
@@ -29,19 +29,25 @@ This theme's **Font/Landing/Index Page** is built with flexible, modular "bands"
 
 ## Structure
 
-```text
+```
 ├── public/
 │   ├── blog_assets/
 │   ├── fonts/
-│   └── front/
+│   ├── front/
+│   ├── store/
+│   └── portfolio/
 ├── src/
 │   ├── components/
 │   ├── content/
 │   │   ├── blog/
-│   │   └── front/
+│   │   ├── front/
+│   │   ├── store/
+│   │   └── portfolio/
 │   ├── layouts/
 │   ├── pages/
-│   │   └── blog/
+│   │   ├── blog/
+│   │   ├── store/
+│   │   └── portfolio/
 │   ├── styles/
 │   │   └── global.css
 │   └── consts.ts

@@ -3,7 +3,7 @@
 
 export const SITE_TITLE = 'Astro Blog';
 export const SITE_DESCRIPTION = 'Welcome to my website!';
-export const FAVICON = "../favicon.svg";
+export const FAVICON = "/favicon.svg";
 export const CONTACT_EMAIL = "email@example.com";
 export const CONTACT_ADD_STREET = "PO Box 0000,";
 export const CONTACT_ADD_CITY = "City,";
@@ -11,14 +11,14 @@ export const CONTACT_ADD_STCT = "State, Country,";
 export const CONTACT_ADD_CODE = "CODE";
 export const TAGLINE = "Colony is a simple site theme for a business website with a blog.";
 export const COMPANY_NAME = "Colony Name";
-export const LOGO_LIGHT = "../colony_wht.png";
-export const LOGO_DARK = "../colony_blk.png";
+export const LOGO_LIGHT = "/colony_wht.png";
+export const LOGO_DARK = "/colony_blk.png";
 
 // The following are further colour customisations, to change them update them to "bgcolor-exlight", "bgcolor-light", "bgcolor-primary", "bgcolor-dark" or "bgcolor-exdark" for reference colours these are 0-4 on the colour palette in the page footer.
 // Note that the colour for the Central Band textbox can be adjusted in the .md file by updating the bgcolor-light with one of the above.
 // Note that button colour is adjusted by adjusting the accent colour in the global.css file.
 
-export const BLOG_CARD_COL = "bgcolor-primary";
+export const BLOG_CARD_COL = "bgcolor-light";
 export const SITE_FOOTER_COL = "bgcolor-exdark";
 export const INDEX_FOOTER_COL = "bgcolor-dark";
 export const NAVBAR_COL = "bgcolor-light";
@@ -31,6 +31,14 @@ export const WEB3FORMS_KEY_HERE = "your access key goes here"
 export const navmenu: Menu[] = [{
     label: "Home",
     href: "/",
+},
+{
+    label: "Store",
+    href: "/store",
+},
+{
+    label: "Works",
+    href: "/portfolio",
 },
 {
     label: "Blog",
